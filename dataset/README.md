@@ -106,11 +106,13 @@ Run the following to create the dataset:
 mvn exec:java -Dexec.mainClass="com.cloudera.cdk.examples.data.CreateHCatalogUserDatasetGeneric"
 ```
 
-Hive/HCatalog's metastore directory is set to _/tmp/user/hive/warehouse/_ (see
-_src/main/resources/hive-site.xml_), which is where the data is written to:
+Note: This example assumes a local (not embedded) metastore running on the local machine. You can
+change the default to use a different metastore by editing _src/main/resources/hive-site.xml_.
+
+Now inspect the dataset storage area:
 
 ```bash
-hadoop fs -ls -R /tmp/user/hive/warehouse/
+hadoop fs -ls -R /user/hive/warehouse/
 ```
 
 Notice that there is no metadata stored there, since the metadata is stored in
