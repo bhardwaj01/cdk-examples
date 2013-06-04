@@ -40,7 +40,7 @@ mvn exec:java -Dexec.mainClass="com.cloudera.cdk.examples.data.DropUserDataset"
 ### Generic records vs. POJOs
 
 The previous examples used POJOs, since they are the most familiar data transfer
-obejcts for most Java programmers. Avro supports generic records too,
+objects for most Java programmers. Avro supports generic records too,
 which are more efficient, since they don't require reflection,
 and also don't require either the reader or writer to have the POJO class available.
 
@@ -94,7 +94,7 @@ mvn exec:java -Dexec.mainClass="com.cloudera.cdk.examples.data.CreateHCatalogUse
 ```
 
 Hive/HCatalog's metastore directory is set to _/tmp/user/hive/warehouse/_ (see
-_resources/hive-site.xml_), which is where the data is written to:
+_src/main/resources/hive-site.xml_), which is where the data is written to:
 
 ```bash
 find /tmp/user/hive/warehouse/
