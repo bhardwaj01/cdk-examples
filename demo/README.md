@@ -2,9 +2,9 @@
 
 This module provides an example of logging application events from a webapp to Hadoop
 via Flume (using log4j as the logging API), extracting session data from the events using
-Crunch, and finally analysing the session data with SQL using Hive or Impala.
+Crunch, and finally analyzing the session data with SQL using Hive or Impala.
 
-## Prequisites
+## Pre-requisites
 
 Before trying this example, you need to have installed Flume (this is explained in the
 `logging` example).
@@ -25,7 +25,7 @@ To build the project, type
 mvn package
 ```
 
-This creates two artifacts: a JAR file containging classes for creating datasets and
+This creates two artifacts: a JAR file containing classes for creating datasets and
 running Crunch jobs, and a WAR file for the webapp that logs application events.
 
 ## Running
@@ -89,7 +89,7 @@ java -Xmx1024m -cp demo-core/target/*:demo-core/target/jars/* com.cloudera.cdk.e
 
 ### Run session analysis
 
-The `sessions` dataset is now populated with data, which you can analyse using SQL. For
+The `sessions` dataset is now populated with data, which you can analyze using SQL. For
 example:
 
 ```bash
