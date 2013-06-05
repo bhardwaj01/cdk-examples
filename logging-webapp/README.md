@@ -36,5 +36,5 @@ Then run the following program from the `logging` example to dump the contents o
 dataset to the console:
 
 ```bash
-java -cp target/logging-*-jar-with-dependencies.jar com.cloudera.cdk.examples.logging.ReadDataset
+java -cp target/*:target/jars/* com.cloudera.cdk.examples.logging.ReadDataset
 ```
