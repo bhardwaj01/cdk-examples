@@ -24,9 +24,7 @@ Navigate to http://localhost:8080/logging-webapp/, which presents you with a ver
 simple web page for sending messages.
 
 The message events are sent to the Flume agent
-over IPC, and the agent writes the events to the HDFS file sink. (Even though it is
-called the HDFS sink, it can actually write to any Hadoop filesystem,
-including the local filesystem.)
+over IPC, and the agent writes the events to the HDFS file sink.
 
 The Flume sink will write a temporary file in _/tmp/data/events/_. Send 10 messages
 using the web form. Then wait a few seconds for the file to be renamed so it no

@@ -6,15 +6,14 @@ Crunch, and finally analyzing the session data with SQL using Hive or Impala.
 
 ## Pre-requisites
 
-Before trying this example, you need to have installed Flume (this is explained in the
-`logging` example).
+Before trying this example, you need to have installed the CDK event serializer module in
+Flume (this is explained in the `logging` example).
 
-You will also need a Hadoop and Hive installation. If you are running from tarballs you
-will need to set the `HADOOP_HOME` and `HIVE_HOME` environment variables.
+Then, in the `demo` directory, start a Flume agent with the configuration specified in
+`flume.properties`.
 
-```bash
-export HADOOP_HOME=~/dev/hadoop-2.0.0-cdh4.2.1
-export HIVE_HOME=~/dev/hive-0.10.0-cdh4.2.1
+```
+sudo flume-ng agent -n agent -c /etc/flume-ng/conf -f flume.properties
 ```
 
 ## Building
@@ -29,14 +28,6 @@ This creates two artifacts: a JAR file containing classes for creating datasets 
 running Crunch jobs, and a WAR file for the webapp that logs application events.
 
 ## Running
-
-### Start the Flume agent
-
-Open a new terminal and start a Flume agent with:
-
-```bash
-$FLUME_HOME/bin/flume-ng agent -n agent -c conf -f flume.properties
-```
 
 ### Create the datasets
 
@@ -66,9 +57,7 @@ Navigate to [http://localhost:8080/demo-webapp/](http://localhost:8080/demo-weba
 which presents you with a very simple web page for sending messages.
 
 The message events are sent to the Flume agent
-over IPC, and the agent writes the events to the HDFS file sink. (Even though it is
-called the HDFS sink, it can actually write to any Hadoop filesystem,
-including the local filesystem.)
+over IPC, and the agent writes the events to the HDFS file sink.
 
 Rather than creating lots of events manually, it's easier to simulate two users using
 a script as follows:
