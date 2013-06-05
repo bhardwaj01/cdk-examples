@@ -42,6 +42,13 @@ Impala.
 ```bash
 java -cp demo-core/target/*:demo-core/target/jars/* com.cloudera.cdk.examples.demo.CreateStandardEventDataset
 java -cp demo-core/target/*:demo-core/target/jars/* com.cloudera.cdk.examples.demo.CreateSessionDataset
+
+```
+To allow Flume to write to our dataset we need to change the directory
+permissions appropriately:
+
+```
+hadoop fs -chmod +w /tmp/data/events
 ```
 
 ### Create events
@@ -82,7 +89,7 @@ The `sessions` dataset is now populated with data, which you can analyze using S
 example:
 
 ```bash
-$HIVE_HOME/bin/hive -e 'DESCRIBE sessions'
-$HIVE_HOME/bin/hive -e 'SELECT * FROM sessions'
-$HIVE_HOME/bin/hive -e 'SELECT AVG(duration) FROM sessions'
+hive -e 'DESCRIBE sessions'
+hive -e 'SELECT * FROM sessions'
+hive -e 'SELECT AVG(duration) FROM sessions'
 ```
